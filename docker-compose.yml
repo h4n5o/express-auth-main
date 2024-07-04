@@ -7,7 +7,7 @@ services:
       - MYSQL_ROOT_PASSWORD=root1234
       - MYSQL_DATABASE=todo_app
     ports:
-      - 3309:3312
+      - 3312:3306 # Ändern Sie den Port hier
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -19,9 +19,9 @@ services:
     restart: on-failure
     build: .
     ports:
-      - 5050:4045
+      - 4045:4045 # Ändern Sie den Port hier
     environment:
-      - PORT=5050
+      - PORT=4045 # Ändern Sie den Port hier
       - DB_USERNAME=root
       - DB_PASSWORD=root1234
       - DB_NAME=todo_app
